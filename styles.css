@@ -1,0 +1,81 @@
+.grid-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    align-content: center;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3)
+ {
+    border-top: none;
+}
+
+.cell:first-child,
+.cell:nth-child(4),
+.cell:nth-child(7)
+ {
+    border-left: none;
+}
+
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9)
+ {
+    border-right: none;
+}
+
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9)
+ {
+    border-bottom: none;
+}
+
+.cell.x::before {
+    content: 'X';
+}
+
+.cell.o::before {
+    content: 'O';
+}
+
+.grid-container.x .cell:not(.x):not(.o):hover::before {
+    color: lightgray;
+    content: 'X';
+}
+
+.grid-container.o .cell:not(.x):not(.o):hover::before {
+    color: lightgray;
+    content: 'O';
+}
+
+.winning-message {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);    
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.winning-message.show {
+    display: flex;
+}
